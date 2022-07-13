@@ -520,6 +520,7 @@
             <div id="articleContent">
                 <h1 id="codeql-with-JNDI-RMI"><a href="#codeql-with-JNDI-RMI" class="headerlink" title="codeql with JNDI RMI"></a>codeql with JNDI RMI</h1><h2 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h2><p>今年年初浅蓝师傅发了两篇探索高版本 JDK 下 JNDI 漏洞利用方法的文章，拜读之后一直没时间自己进行探索，正巧最近在工作期间学习codeql相关姿势，看了一下关于寻找高版本JDK下RMI可利用的类及方法的条件，很适合使用codeql写规则探索，于是在这里记录一下自己的探索过程。</p>
 <p>写在前面，m1yuu技术有限，文中有些出错的地方或者未表达清晰的细节还请各位大佬斧正</p>
+<p>本文首发于tttang <a target="_blank" rel="noopener" href="http://tttang.com/archive/1660/">http://tttang.com/archive/1660/</a></p>
 <h2 id="0x01-构建codeql"><a href="#0x01-构建codeql" class="headerlink" title="0x01 构建codeql"></a>0x01 构建codeql</h2><p>本文聚焦于利用<code>BeanFactory#getObjectInstance</code>扩大攻击面之后的利用方式探索。我们稍微回忆一下需要寻找的类/方法需要满足的条件，方便构造codeql语句进行查询：</p>
 <h3 id="对类的限制"><a href="#对类的限制" class="headerlink" title="对类的限制"></a>对类的限制</h3><p>我们寻找的类需要满足：</p>
 <ul>
@@ -897,11 +898,11 @@ class UsableMethod extends Method {
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><code>return new SpelExpression(expressionString, ast, this.configuration);</code>相当于我们构造到<code>Expression expression = parser.parseExpression(spel);</code>，但是最关键的<code>getValue</code>并没有办法触发。</p>
-<h2 id="0x06-openjdk-java原生利用点"><a href="#0x06-openjdk-java原生利用点" class="headerlink" title="0x06 openjdk java原生利用点"></a>0x06 openjdk java原生利用点</h2><p>FBI warning</p>
+<h2 id="0x06-openjdk-java原生利用点"><a href="#0x06-openjdk-java原生利用点" class="headerlink" title="0x06 openjdk java原生利用点"></a>0x06 openjdk java原生利用点</h2><p>FBI warning（去tttang看吧）</p>
 <h2 id="0x07后记"><a href="#0x07后记" class="headerlink" title="0x07后记"></a>0x07后记</h2><p>起初只是想用codeql玩一下，看能不能找到浅蓝师傅已经公布的利用方式，但是越走越深，最后甚至big胆到去扫openjdk，但找到了一种利用方式也算没白忙活吧。</p>
 <p>codeql短短二十行代码就能将有用的类或方法筛选出来，确实是非常好用的工具。但是对于企业业务来说，给项目构建codeql数据库本身就是一件很难实现的事情，但是在其实现之前我们仍可以用codeql减少很多代码审计工作量。</p>
 <p>(浅蓝yyds)</p>
-<p>reference：(浅蓝yyds)</p>
+<p>reference：</p>
 <p><a target="_blank" rel="noopener" href="https://tttang.com/archive/1405">https://tttang.com/archive/1405</a></p>
 <p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/10829">https://xz.aliyun.com/t/10829</a></p>
 <p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/3357">https://xz.aliyun.com/t/3357</a></p>
