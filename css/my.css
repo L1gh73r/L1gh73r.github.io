@@ -9,6 +9,33 @@
 .nav-menu > li > a {
     padding: 0 10px;
     font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+@media only screen and (min-width: 1361px) {
+    #headNav #navContainer {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    #headNav .brand-logo {
+        position: static;
+        flex: 0 0 auto;
+        transform: none;
+        white-space: nowrap;
+    }
+
+    #headNav .nav-menu {
+        display: flex;
+        flex: 0 0 auto;
+        float: none !important;
+        margin-left: auto;
+    }
+
+    #headNav .nav-menu > li {
+        float: none;
+    }
 }
 
 #aboutme .introduction p + p,
@@ -131,9 +158,20 @@
     overflow-wrap: anywhere;
 }
 
-.contact-channel > i {
+.contact-channel .contact-channel-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    min-height: 2rem;
+    margin-top: 0;
+}
+
+.contact-channel-heading > i {
+    flex: 0 0 1.5rem;
     color: #167d4b;
-    font-size: 1.6rem;
+    font-size: 1.35rem;
+    line-height: 1;
+    text-align: center;
 }
 
 .contact-channel h2,
@@ -194,7 +232,7 @@
     margin-top: 0;
 }
 
-@media only screen and (min-width: 993px) and (max-width: 1280px) {
+@media only screen and (min-width: 993px) and (max-width: 1360px) {
     #headNav .nav-menu {
         display: none;
     }

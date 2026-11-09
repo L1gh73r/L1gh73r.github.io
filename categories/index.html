@@ -26,7 +26,7 @@
     <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css?v=65f3b3ea9bbe">
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
@@ -379,19 +379,10 @@
                 
                 
                 
-                <a href="/categories/%E6%9D%82%E8%AE%B0/" title="杂记: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F9EBEA;">杂记
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/categories/web%E5%AE%89%E5%85%A8/" title="web安全: 11">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F5EEF8;">web安全
+                            style="background-color: #F9EBEA;">web安全
                         <span class="tag-length">11</span>
                     </span>
                 </a>
@@ -400,7 +391,7 @@
                 <a href="/categories/CTF/" title="CTF: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #D5F5E3;">CTF
+                            style="background-color: #F5EEF8;">CTF
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -409,7 +400,7 @@
                 <a href="/categories/%E5%85%B6%E4%BB%96/" title="其他: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #E8F8F5;">其他
+                            style="background-color: #D5F5E3;">其他
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -418,8 +409,17 @@
                 <a href="/categories/%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/" title="开发学习: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #FEF9E7;">开发学习
+                            style="background-color: #E8F8F5;">开发学习
                         <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E6%9D%82%E8%AE%B0/" title="杂记: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #FEF9E7;">杂记
+                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
@@ -466,7 +466,7 @@
                     color: '#3C4858'
                 }
             },
-            indicator: [{"name":"杂记","max":12},{"name":"web安全","max":12},{"name":"CTF","max":12},{"name":"其他","max":12},{"name":"开发学习","max":12}],
+            indicator: [{"name":"web安全","max":12},{"name":"CTF","max":12},{"name":"其他","max":12},{"name":"开发学习","max":12},{"name":"杂记","max":12}],
             nameGap: 5,
             center: ['50%','55%'],
             radius: '66%'
@@ -477,7 +477,7 @@
             itemStyle: {normal: {areaStyle: {type: 'default'}}},
             data : [
                 {
-                    value : [2,11,1,1,1],
+                    value : [11,1,1,1,2],
                     name : '分类数量 / Categories'
                 }
             ]
