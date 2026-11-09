@@ -1,1 +1,239 @@
 /* Here is your custom css styles. */
+
+.brand .title {
+    font-size: clamp(1.8rem, 4vw, 3.6rem);
+    line-height: 1.4;
+    text-wrap: balance;
+}
+
+.nav-menu > li > a {
+    padding: 0 10px;
+    font-size: 0.9rem;
+}
+
+#aboutme .introduction p + p,
+.dream .text p + p {
+    margin-top: 0.8rem;
+}
+
+#aboutme .introduction {
+    max-width: 780px;
+    color: #596570;
+    line-height: 1.8;
+}
+
+.profile-talks {
+    max-width: 900px;
+    margin: 0 auto 1rem;
+    padding: 0 1.5rem;
+}
+
+.profile-talks h2 {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.profile-talk,
+.research-skill {
+    padding: 1.5rem;
+    border: 1px solid #dfe8e3;
+    border-radius: 8px;
+    background: #f8fbf9;
+    overflow-wrap: anywhere;
+}
+
+.profile-talk h3,
+.research-skill h3 {
+    margin: 0 0 1rem;
+    color: #34495e;
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+.profile-talk p,
+.research-skill p {
+    margin: 0.6rem 0;
+    color: #596570;
+    line-height: 1.7;
+}
+
+.profile-talk .talk-event {
+    margin-top: 0;
+    color: #167d4b;
+    font-weight: 500;
+}
+
+.research-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.research-skill-name-en {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.contact-cover .bg-cover {
+    height: 35vh;
+    min-height: 300px;
+    max-height: 420px;
+}
+
+.contact-container {
+    position: relative;
+    max-width: 1100px;
+    margin-top: -60px;
+}
+
+.contact-page .card-content {
+    padding: 2.5rem;
+    color: #596570;
+    line-height: 1.8;
+}
+
+.contact-intro {
+    max-width: 780px;
+    margin: 0 auto 2rem;
+    text-align: center;
+}
+
+.contact-intro h1 {
+    margin: 0 0 1.25rem;
+    color: #34495e;
+    font-size: 2rem;
+    line-height: 1.4;
+}
+
+.contact-intro p + p,
+.contact-note p + p {
+    margin-top: 0.65rem;
+}
+
+.contact-channels {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.contact-channel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    border: 1px solid #dfe8e3;
+    border-radius: 8px;
+    background: #f8fbf9;
+    overflow-wrap: anywhere;
+}
+
+.contact-channel > i {
+    color: #167d4b;
+    font-size: 1.6rem;
+}
+
+.contact-channel h2,
+.contact-topics h2,
+.contact-note h2 {
+    margin: 1rem 0 0.75rem;
+    color: #34495e;
+    font-size: 1.3rem;
+    line-height: 1.5;
+}
+
+.contact-channel .contact-address {
+    display: block;
+    margin: 1rem 0;
+    color: #167d4b;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.contact-action {
+    display: inline-block;
+    margin-top: auto;
+    padding: 0.6rem 1rem;
+    border: 1px solid #167d4b;
+    border-radius: 5px;
+    color: #167d4b;
+    font-weight: 500;
+}
+
+.contact-action:hover,
+.contact-action:focus-visible {
+    color: #fff;
+    background: #167d4b;
+}
+
+.contact-topics,
+.contact-note,
+.contact-extra {
+    margin-top: 2rem;
+}
+
+.contact-topics ul {
+    padding-left: 1.4rem;
+}
+
+.contact-topics ul li {
+    margin: 0.5rem 0;
+    list-style-type: disc;
+}
+
+.contact-note {
+    padding: 1rem 1.5rem;
+    border-left: 3px solid #167d4b;
+    background: #f8fbf9;
+}
+
+.contact-note h2 {
+    margin-top: 0;
+}
+
+@media only screen and (min-width: 993px) and (max-width: 1280px) {
+    #headNav .nav-menu {
+        display: none;
+    }
+
+    #headNav .sidenav-trigger {
+        display: block;
+    }
+
+    #headNav .brand-logo {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .contact-page .card-content {
+        padding: 1.5rem;
+    }
+
+    .contact-channels {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .contact-intro h1 {
+        font-size: 1.7rem;
+    }
+
+    .research-skills-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .profile-talks,
+    #aboutme .my-skills {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .profile-talks h2,
+    #aboutme .my-skills .title {
+        font-size: 1.5rem;
+    }
+}
