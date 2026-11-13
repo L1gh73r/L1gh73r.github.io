@@ -65,7 +65,6 @@
     text-align: center;
 }
 
-.profile-talk,
 .research-skill {
     padding: 1.5rem;
     border: 1px solid #dfe8e3;
@@ -74,7 +73,6 @@
     overflow-wrap: anywhere;
 }
 
-.profile-talk h3,
 .research-skill h3 {
     margin: 0 0 1rem;
     color: #34495e;
@@ -82,17 +80,201 @@
     line-height: 1.5;
 }
 
-.profile-talk p,
 .research-skill p {
     margin: 0.6rem 0;
     color: #596570;
     line-height: 1.7;
 }
 
+.profile-talk {
+    display: grid;
+    grid-template-columns: 210px minmax(0, 1fr);
+    margin-top: 1.5rem;
+    overflow: hidden;
+    border: 1px solid #253540;
+    border-radius: 10px;
+    background: #0b1015;
+    color: #f5f8fa;
+    box-shadow: 0 12px 28px rgba(7, 17, 25, 0.14);
+    text-align: left;
+}
+
+.talk-brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+    border-right: 1px solid #253540;
+    border-top: 3px solid #37bce8;
+    background: #030608;
+}
+
+.talk-logo {
+    display: block;
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+}
+
 .profile-talk .talk-event {
-    margin-top: 0;
-    color: #167d4b;
+    margin: 0 0 0.5rem;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+}
+
+.talk-track {
+    color: #6ed5f6;
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+}
+
+.talk-detail {
+    min-width: 0;
+    padding: 2rem;
+}
+
+.talk-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    margin-bottom: 1rem;
+    color: #b4c2cc;
+    font-size: 0.8rem;
+    line-height: 1.6;
+}
+
+.talk-meta i {
+    margin-right: 0.3rem;
+    color: #6ed5f6;
+}
+
+.profile-talk h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1.55rem;
+    font-weight: 700;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.profile-talk h3 a {
+    color: #fff;
+}
+
+.profile-talk h3 a:hover {
+    color: #6ed5f6;
+    text-decoration: none;
+}
+
+.profile-talk .talk-title-zh {
+    margin: 0;
+    color: #c7d2db;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.profile-talk .talk-speakers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.75rem;
+    margin: 1.25rem 0 0;
+    color: #aabac6;
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+
+.talk-speakers strong {
+    color: #f5f8fa;
     font-weight: 500;
+}
+
+.talk-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.profile-talk .talk-action {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid #536b7b;
+    border-radius: 3px;
+    color: #e9f2f7;
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-decoration: none;
+    transition: background-color 0.15s, border-color 0.15s;
+}
+
+.profile-talk .talk-action-primary {
+    border-color: #37bce8;
+    background: #37bce8;
+    color: #03151e;
+}
+
+.profile-talk .talk-action:hover {
+    border-color: #6ed5f6;
+    background: #162d3a;
+    text-decoration: none;
+}
+
+.profile-talk .talk-action-primary:hover {
+    background: #6ed5f6;
+    color: #03151e;
+}
+
+.profile-talk a:focus-visible {
+    outline: 2px solid #6ed5f6;
+    outline-offset: 4px;
+}
+
+@media only screen and (max-width: 768px) {
+    .profile-talk {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .talk-brand {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 1.5rem;
+        border-right: 0;
+        border-bottom: 1px solid #253540;
+    }
+
+    .talk-logo {
+        width: 140px;
+    }
+
+    .profile-talk .talk-event {
+        font-size: 1.2rem;
+    }
+
+    .talk-detail {
+        padding: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .profile-talk h3 {
+        font-size: 1.3rem;
+    }
+
+    .talk-actions {
+        flex-direction: column;
+    }
 }
 
 .research-skills-grid {
