@@ -12,6 +12,11 @@
     white-space: nowrap;
 }
 
+.profile .avatar-img {
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
 @media only screen and (min-width: 1361px) {
     #headNav #navContainer {
         display: flex;
