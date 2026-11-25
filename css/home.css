@@ -1,8 +1,4 @@
 .home-main .home-hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
-    align-items: center;
-    gap: clamp(2rem, 6vw, 6rem);
     padding-block: clamp(2.75rem, 6vw, 5.5rem) clamp(2.5rem, 5vw, 4.5rem);
 }
 
@@ -25,13 +21,13 @@
 
 .home-title-en {
     display: block;
-    max-width: 11ch;
     font-family: var(--site-serif);
     font-size: clamp(4.25rem, 7.8vw, 7.5rem);
     font-weight: 400;
     letter-spacing: -0.035em;
     line-height: 0.9;
     overflow-wrap: anywhere;
+    text-wrap: balance;
 }
 
 .home-deck {
@@ -92,38 +88,6 @@
     color: var(--site-ink);
     text-decoration: underline;
     text-underline-offset: 0.23em;
-}
-
-.home-portrait {
-    margin: 0;
-}
-
-.home-portrait-image {
-    overflow: hidden;
-    border: 1px solid var(--site-line);
-    border-radius: 0.25rem;
-    background: #e9eae2;
-}
-
-.home-portrait-image img {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1430 / 1211;
-    mix-blend-mode: multiply;
-}
-
-.home-portrait-caption {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.25rem 1rem;
-    margin-top: 0.6rem;
-    color: var(--site-muted);
-    font-family: var(--site-mono);
-    font-size: 0.76rem;
-    line-height: 1.4;
 }
 
 .home-social-links {
@@ -374,23 +338,11 @@
 
 @media (max-width: 760px) {
     .home-main .home-hero {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 1.75rem;
         padding-block: 2.25rem 1.9rem;
     }
 
     .home-title-en {
         font-size: clamp(3.9rem, 11vw, 6.2rem);
-    }
-
-    .home-portrait {
-        max-width: 28rem;
-    }
-
-    .home-portrait-image img {
-        aspect-ratio: 3 / 2;
-        object-fit: cover;
-        object-position: center 75%;
     }
 
     .home-post {

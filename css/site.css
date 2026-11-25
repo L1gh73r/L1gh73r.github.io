@@ -84,7 +84,7 @@ body.site-page {
     align-items: center;
     gap: 11px;
     color: var(--site-ink);
-    font: 400 28px/1 var(--site-serif);
+    font: 400 22px/1 var(--site-serif);
     white-space: nowrap;
 }
 
@@ -381,6 +381,11 @@ body.site-page {
 }
 
 @media (max-width: 959px) {
+    #headNav .site-brand,
+    .site-drawer-head {
+        font-size: 20px;
+    }
+
     #headNav .site-menu {
         display: none;
     }
@@ -405,7 +410,6 @@ body.site-page {
 
     #headNav .site-brand {
         gap: 8px;
-        font-size: 25px;
     }
 
     #headNav .site-github {
