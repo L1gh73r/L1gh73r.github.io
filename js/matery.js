@@ -12,53 +12,33 @@ $(function () {
     };
     articleCardHover();
 
-    /*菜单切换*/
-    $('.sidenav').sidenav();
-
-    /* 修复文章卡片 div 的宽度. */
-    let fixPostCardWidth = function (srcId, targetId) {
-        let srcDiv = $('#' + srcId);
-        if (srcDiv.length === 0) {
-            return;
+    const drawer = document.getElementById('mobile-nav');
+    const drawerTrigger = document.querySelector('[aria-controls="mobile-nav"]');
+    $(drawer).sidenav({
+        draggable: false,
+        onOpenStart() {
+            drawer.classList.add('visible');
+            drawerTrigger.setAttribute('aria-expanded', 'true');
+        },
+        onOpenEnd() {
+            drawer.querySelector('.sidenav-close').focus();
+        },
+        onCloseEnd() {
+            if (drawer.contains(document.activeElement)) {
+                drawerTrigger.focus();
+            }
+            drawer.classList.remove('visible');
+            drawerTrigger.setAttribute('aria-expanded', 'false');
         }
-
-        let w = srcDiv.width();
-        if (w >= 450) {
-            w = w + 21;
-        } else if (w >= 350 && w < 450) {
-            w = w + 18;
-        } else if (w >= 300 && w < 350) {
-            w = w + 16;
-        } else {
-            w = w + 14;
+    });
+    drawer.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            M.Sidenav.getInstance(drawer).close();
         }
-        $('#' + targetId).width(w);
-    };
-
-    /**
-     * 修复footer部分的位置，使得在内容比较少时，footer也会在底部.
-     */
-    let fixFooterPosition = function () {
-        $('.content').css('min-height', window.innerHeight - 165);
-    };
-
-    /**
-     * 修复样式.
-     */
-    let fixStyles = function () {
-        fixPostCardWidth('navContainer');
-        fixPostCardWidth('artDetail', 'prenext-posts');
-        fixFooterPosition();
-    };
-    fixStyles();
-
-    /*调整屏幕宽度时重新设置文章列的宽度，修复小间距问题*/
-    $(window).resize(function () {
-        fixStyles();
     });
 
     /*初始化瀑布流布局*/
-    $('#articles').masonry({
+    $('#articles.articles').masonry({
         itemSelector: '.article'
     });
 
@@ -116,45 +96,29 @@ $(function () {
     };
     articleInit();
 
-    $('.modal').modal();
+    $('.modal').modal({
+        onOpenEnd(modal) {
+            const searchInput = modal.querySelector('#searchInput');
+            if (searchInput) searchInput.focus();
+        }
+    });
 
     /*回到顶部*/
     $('#backTop').click(function () {
-        $('body,html').animate({scrollTop: 0}, 400);
+        window.scrollTo({
+            top: 0,
+            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+        });
         return false;
     });
 
     /*监听滚动条位置*/
-    let $nav = $('#headNav');
-    let $backTop = $('.top-scroll');
-    // 当页面处于文章中部的时候刷新页面，因为此时无滚动，所以需要判断位置,给导航加上绿色。
-    showOrHideNavBg($(window).scrollTop());
-    $(window).scroll(function () {
-        /* 回到顶部按钮根据滚动条的位置的显示和隐藏.*/
-        let scroll = $(window).scrollTop();
-        showOrHideNavBg(scroll);
-    });
-
-    function showOrHideNavBg(position) {
-        let showPosition = 100;
-        if (position < showPosition) {
-            $nav.addClass('nav-transparent');
-            $backTop.slideUp(300);
-        } else {
-            $nav.removeClass('nav-transparent');
-            $backTop.slideDown(300);
-        }
+    const $backTop = $('.top-scroll');
+    function updateBackTop() {
+        $backTop.toggle(window.scrollY > 100);
     }
-
-    	
-	$(".nav-menu>li").hover(function(){
-		$(this).children('ul').stop(true,true).show();
-		 $(this).addClass('nav-show').siblings('li').removeClass('nav-show');
-		
-	},function(){
-		$(this).children('ul').stop(true,true).hide();
-		$('.nav-item.nav-show').removeClass('nav-show');
-	})
+    updateBackTop();
+    window.addEventListener('scroll', updateBackTop, { passive: true });
 	
     $('.m-nav-item>a').on('click',function(){
             if ($(this).next('ul').css('display') == "none") {

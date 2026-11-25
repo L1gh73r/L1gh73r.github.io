@@ -1,0 +1,441 @@
+.editorial-about {
+    padding-block: clamp(2.5rem, 7vw, 6rem) clamp(4rem, 8vw, 7rem);
+    color: var(--site-ink);
+}
+
+.editorial-about [hidden] {
+    display: none;
+}
+
+.about-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.88fr);
+    align-items: center;
+    gap: clamp(2rem, 6vw, 5.75rem);
+}
+
+.about-bio-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--site-line);
+}
+
+.about-kicker {
+    margin: 0;
+    color: var(--site-accent);
+    font-family: var(--site-mono);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.about-languages {
+    display: inline-flex;
+    gap: 0.2rem;
+}
+
+.about-languages button {
+    min-height: 2.75rem;
+    padding-inline: 0.7rem;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    background: transparent;
+    color: var(--site-muted);
+    font: inherit;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.about-languages button:hover,
+.about-languages button[aria-pressed="true"] {
+    border-color: var(--site-line);
+    background: var(--site-surface);
+    color: var(--site-accent);
+}
+
+.about-bio h1 {
+    margin: 0 0 1.15rem;
+    font-family: var(--site-serif);
+    font-size: clamp(4rem, 9vw, 7.75rem);
+    font-weight: 400;
+    letter-spacing: -0.045em;
+    line-height: 0.9;
+    overflow-wrap: anywhere;
+}
+
+.about-career {
+    margin-bottom: 1.4rem;
+    color: var(--site-ink);
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 600;
+    line-height: 1.55;
+}
+
+.about-introduction {
+    max-width: 44ch;
+    color: var(--site-muted);
+    font-size: 1rem;
+    line-height: 1.85;
+}
+
+.about-career p,
+.about-introduction p {
+    margin: 0.25rem 0;
+}
+
+.about-social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 1.8rem;
+}
+
+.about-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    padding: 0.45rem;
+    border: 1px solid var(--site-line);
+    border-radius: 3px;
+    color: var(--site-accent);
+    text-decoration: none;
+}
+
+.about-social .about-contact {
+    padding-inline: 0.85rem;
+    background: var(--site-surface);
+    font-size: 0.86rem;
+    font-weight: 600;
+}
+
+.about-social a:hover,
+.about-topics a:hover {
+    border-color: var(--site-accent);
+    background: var(--site-accent);
+    color: var(--site-surface);
+}
+
+.about-portrait {
+    overflow: hidden;
+    border: 1px solid var(--site-line);
+    border-radius: 4px;
+    background: #edece4;
+}
+
+.about-portrait img {
+    display: block;
+    width: 100%;
+    height: auto;
+    mix-blend-mode: multiply;
+}
+
+.about-counts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(84px, 1fr));
+    margin-top: clamp(2rem, 5vw, 4.5rem);
+    border-block: 1px solid var(--site-line);
+}
+
+.about-counts .statis {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 7rem;
+    padding: 0.8rem 0.4rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+.about-counts .statis + .statis {
+    border-inline-start: 1px solid var(--site-line);
+}
+
+.about-counts .count {
+    color: var(--site-accent);
+    font-family: var(--site-serif);
+    font-size: clamp(2.3rem, 5vw, 3.5rem);
+    line-height: 1;
+    text-decoration: none;
+}
+
+.about-counts .statis:hover {
+    background: var(--site-surface);
+}
+
+.about-counts .name {
+    margin-top: 0.35rem;
+    color: var(--site-muted);
+    font-size: 0.75rem;
+}
+
+.about-section {
+    margin-top: clamp(3.5rem, 8vw, 6rem);
+    scroll-margin-top: 6rem;
+}
+
+.about-section-title,
+.editorial-about .my-projects .title,
+.editorial-about .my-gallery .title {
+    margin: 0 0 1.5rem;
+    color: var(--site-ink);
+    font-family: var(--site-serif);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    text-align: left;
+}
+
+.about-talk {
+    display: grid;
+    grid-template-columns: minmax(12rem, 0.65fr) minmax(0, 1.35fr);
+    overflow: hidden;
+    border: 1px solid var(--site-line);
+    border-radius: 4px;
+    background: var(--site-surface);
+}
+
+.about-talk + .about-talk {
+    margin-top: 1.5rem;
+}
+
+.about-talk-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: clamp(1.4rem, 3vw, 2.5rem);
+    border-top: 3px solid #5dc7d9;
+    background: #101a20;
+    color: #fff;
+}
+
+.about-talk-logo {
+    display: block;
+    width: min(100%, 10.5rem);
+    height: auto;
+}
+
+.about-talk-edition p {
+    margin: 0 0 0.35rem;
+    font-family: var(--site-mono);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+}
+
+.about-talk-edition span {
+    color: #80d7e2;
+    font-size: 0.84rem;
+}
+
+.about-talk-detail {
+    min-width: 0;
+    padding: clamp(1.4rem, 4vw, 3.35rem);
+}
+
+.about-talk-meta,
+.about-talk-speakers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.9rem;
+    color: var(--site-muted);
+    font-size: 0.81rem;
+    line-height: 1.6;
+}
+
+.about-talk-meta {
+    margin: 0 0 1rem;
+}
+
+.about-talk-meta time {
+    font-family: var(--site-mono);
+}
+
+.about-talk-detail h3 {
+    margin: 0;
+    font-size: clamp(1.3rem, 3vw, 1.95rem);
+    font-weight: 600;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+    text-wrap: pretty;
+}
+
+.about-talk-detail h3 a {
+    color: var(--site-ink);
+}
+
+.about-talk-detail h3 a:hover {
+    color: var(--site-accent);
+    text-decoration: underline;
+}
+
+.about-talk-speakers {
+    margin: 1rem 0 0;
+}
+
+.about-talk-speakers strong {
+    color: var(--site-ink);
+    font-weight: 600;
+}
+
+.about-talk-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1.3rem;
+    margin-top: 1.1rem;
+}
+
+.about-talk-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-height: 2.75rem;
+    color: var(--site-accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+}
+
+.about-talk-links a:hover {
+    color: var(--site-ink);
+}
+
+.about-research {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(1.5rem, 5vw, 4rem);
+    border-bottom: 1px solid var(--site-line);
+}
+
+.about-research article {
+    min-width: 0;
+    padding-block: 1.25rem;
+    border-top: 1px solid var(--site-line);
+    overflow-wrap: anywhere;
+}
+
+.about-research h3,
+.about-topics h3 {
+    margin: 0 0 0.45rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.about-research p {
+    max-width: 48ch;
+    margin: 0.3rem 0;
+    color: var(--site-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.about-topics {
+    margin-top: 1.8rem;
+}
+
+.about-topics ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.42rem;
+    margin: 0.75rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.about-topics a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2rem;
+    padding: 0.24rem 0.65rem;
+    border: 1px solid var(--site-line);
+    border-radius: 3px;
+    color: var(--site-muted);
+    font-size: 0.8rem;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.about-charts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    overflow: hidden;
+    border: 1px solid var(--site-line);
+    border-radius: 4px;
+    background: var(--site-line);
+}
+
+.about-chart {
+    min-width: 0;
+    padding: 1rem;
+    background: var(--site-surface);
+}
+
+.about-chart h3 {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.about-chart-plot {
+    width: 100%;
+    height: 14rem;
+}
+
+.editorial-about a:focus-visible,
+.editorial-about button:focus-visible {
+    outline: 2px solid var(--site-accent);
+    outline-offset: 3px;
+}
+
+@media (max-width: 800px) {
+    .about-hero {
+        gap: 2rem;
+    }
+
+    .about-charts {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 620px) {
+    .about-hero,
+    .about-talk,
+    .about-research {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .about-portrait {
+        max-width: 32rem;
+    }
+
+    .about-talk-brand {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .about-talk-logo {
+        width: min(100%, 8rem);
+    }
+
+    .about-counts .statis {
+        min-height: 5.5rem;
+    }
+}

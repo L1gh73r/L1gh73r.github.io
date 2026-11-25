@@ -1,0 +1,414 @@
+@font-face {
+    font-family: "Instrument Serif";
+    src: url("../fonts/instrument-serif/regular.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Instrument Serif";
+    src: url("../fonts/instrument-serif/italic.woff2") format("woff2");
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+}
+
+:root {
+    --site-paper: #f7f4ee;
+    --site-surface: #fcfaf5;
+    --site-ink: #172529;
+    --site-muted: #52615f;
+    --site-accent: #176c63;
+    --site-line: #d8d8cd;
+    --site-wash: #e9ece3;
+    --site-serif: "Instrument Serif", "Songti SC", "Noto Serif CJK SC", SimSun, Georgia, serif;
+    --site-sans: system-ui, "PingFang SC", "Microsoft YaHei", sans-serif;
+    --site-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    --site-header-height: 68px;
+    scroll-padding-top: calc(var(--site-header-height) + 12px);
+}
+
+body.site-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--site-paper);
+    color: var(--site-ink);
+    font-family: var(--site-sans);
+    overflow-x: clip;
+}
+
+::selection {
+    color: var(--site-ink);
+    background: #d4e6d8;
+}
+
+.site-page :is(a, button, input):focus-visible {
+    outline: 2px solid var(--site-accent);
+    outline-offset: 3px;
+}
+
+.site-shell {
+    width: calc(100% - 48px);
+    max-width: 1140px;
+    margin-inline: auto;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--site-line);
+    background: var(--site-paper);
+}
+
+#headNav {
+    height: auto;
+    background: transparent;
+    box-shadow: none;
+    color: var(--site-ink);
+    line-height: normal;
+}
+
+.site-nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: calc(var(--site-header-height) - 1px);
+}
+
+#headNav .site-brand,
+.site-drawer-head {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: var(--site-ink);
+    font: 400 28px/1 var(--site-serif);
+    white-space: nowrap;
+}
+
+.site-brand img,
+.site-drawer-head img {
+    display: block;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#headNav .site-brand:hover {
+    color: var(--site-accent);
+}
+
+#headNav .site-menu {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+    align-self: stretch;
+    gap: clamp(12px, 2vw, 27px);
+    margin: 0 0 0 auto;
+}
+
+#headNav .site-menu > li {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    float: none;
+}
+
+#headNav .site-menu a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+    color: var(--site-muted);
+    font-size: 13px;
+    font-weight: 550;
+    white-space: nowrap;
+}
+
+#headNav .site-menu a:hover,
+#headNav .site-menu a[aria-current] {
+    background: transparent;
+    color: var(--site-accent);
+}
+
+#headNav .site-menu > li > a[aria-current] {
+    box-shadow: inset 0 -2px var(--site-accent);
+}
+
+#headNav .site-submenu {
+    position: absolute;
+    top: 100%;
+    left: -12px;
+    display: none;
+    min-width: max-content;
+    padding: 6px 12px;
+    border: 1px solid var(--site-line);
+    background: var(--site-surface);
+}
+
+#headNav .site-menu li:is(:hover, :focus-within) > .site-submenu {
+    display: grid;
+}
+
+#headNav .site-submenu a {
+    min-height: 38px;
+}
+
+.site-nav-tools {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.site-icon-link,
+#headNav .site-icon-link {
+    display: inline-grid;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    place-items: center;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: transparent;
+    color: var(--site-ink);
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.site-icon-link:hover,
+#headNav .site-icon-link:hover {
+    border-color: var(--site-line);
+    background: var(--site-wash);
+    color: var(--site-accent);
+}
+
+#headNav .site-icon-link i,
+#headNav .site-menu i {
+    display: inline;
+    height: auto;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+#headNav .sidenav-trigger {
+    display: none;
+    float: none;
+    margin: 0;
+}
+
+.site-page .site-drawer {
+    width: min(312px, 88vw);
+    padding: 0 0 20px;
+    background: var(--site-surface);
+}
+
+.site-drawer:not(.visible) {
+    visibility: hidden;
+}
+
+.site-drawer-head {
+    min-height: 83px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--site-line);
+}
+
+.site-drawer-head button {
+    margin-left: auto;
+}
+
+.site-drawer .mobile-menu-list {
+    margin: 10px 0 0;
+}
+
+.site-drawer .m-nav-item > ul {
+    display: none;
+}
+
+.site-drawer .m-icon {
+    float: right;
+}
+
+.site-drawer .mobile-menu-list a {
+    color: var(--site-ink);
+    font-size: 14px;
+}
+
+.site-drawer .mobile-menu-list a i {
+    margin-right: 16px;
+    color: var(--site-accent) !important;
+}
+
+.site-footer {
+    margin-top: auto;
+    padding: 25px 0 30px;
+    border-top: 1px solid var(--site-line);
+}
+
+.site-footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px 28px;
+    color: var(--site-muted);
+}
+
+.site-footer-credit {
+    margin: 0;
+    font-size: 13px;
+}
+
+.site-footer-credit a {
+    color: var(--site-ink);
+    text-underline-offset: 3px;
+}
+
+.site-footer-credit a:hover {
+    color: var(--site-accent);
+    text-decoration: underline;
+}
+
+.site-footer-stats,
+.site-footer-social {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 12px;
+    font-size: 12px;
+}
+
+.site-footer-stats > [id^="busuanzi_container"]:has(span:empty) {
+    display: none !important;
+}
+
+.site-footer-social {
+    gap: 5px;
+}
+
+.site-footer-social a {
+    display: grid;
+    width: 37px;
+    height: 37px;
+    place-items: center;
+    border: 1px solid var(--site-line);
+    border-radius: 50%;
+    color: var(--site-muted);
+    font-size: 15px;
+}
+
+.site-footer-social a:hover {
+    border-color: var(--site-accent);
+    color: var(--site-accent);
+}
+
+#searchModal.site-search {
+    width: min(620px, calc(100% - 32px));
+    min-height: 0;
+    max-height: 78vh;
+    border: 1px solid var(--site-line);
+    border-radius: 8px;
+    background: var(--site-surface);
+    box-shadow: 0 24px 80px #17252938;
+}
+
+.site-search .search-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.site-search h2 {
+    margin: 0;
+    color: var(--site-ink);
+    font: 400 32px/1.2 var(--site-serif);
+}
+
+#searchModal #searchInput {
+    box-sizing: border-box;
+    height: 46px;
+    margin: 0;
+    padding: 0 12px;
+    border: 1px solid var(--site-line);
+    border-radius: 4px;
+    background: var(--site-paper);
+    color: var(--site-ink);
+    box-shadow: none;
+}
+
+#searchModal #searchInput::placeholder {
+    color: var(--site-muted);
+}
+
+#searchModal #searchResult,
+#searchResult .search-result-list {
+    margin: 0;
+}
+
+#searchResult .search-result-list li {
+    padding: 14px 0;
+    border-color: var(--site-line);
+}
+
+#searchResult .search-result-title {
+    color: var(--site-accent);
+    font-size: 16px;
+    font-weight: 650;
+}
+
+#searchResult .search-result {
+    margin: 4px 0 0;
+    overflow-wrap: anywhere;
+}
+
+#searchResult .search-keyword {
+    background: var(--site-wash);
+    color: var(--site-accent);
+}
+
+.site-page .progress-bar {
+    height: 3px;
+    background: var(--site-accent);
+}
+
+#backTop .site-icon-link {
+    border-color: var(--site-line);
+    background: var(--site-surface);
+}
+
+@media (max-width: 959px) {
+    #headNav .site-menu {
+        display: none;
+    }
+
+    #headNav .sidenav-trigger {
+        display: inline-grid;
+    }
+}
+
+@media (max-width: 600px) {
+    :root {
+        --site-header-height: 60px;
+    }
+
+    .site-shell {
+        width: calc(100% - 36px);
+    }
+
+    .site-nav-inner {
+        gap: 6px;
+    }
+
+    #headNav .site-brand {
+        gap: 8px;
+        font-size: 25px;
+    }
+
+    #headNav .site-github {
+        display: none;
+    }
+}
