@@ -1,5 +1,5 @@
 .home-main .home-hero {
-    padding-block: clamp(2.75rem, 6vw, 5.5rem) clamp(2.5rem, 5vw, 4.5rem);
+    padding-block: clamp(32px, 4vw, 56px) clamp(28px, 3.5vw, 48px);
 }
 
 .home-intro h1 {
@@ -10,7 +10,7 @@
 
 .home-title-zh {
     display: block;
-    margin-bottom: 0.85rem;
+    margin-bottom: 0.45rem;
     color: var(--site-accent);
     font-family: var(--site-sans);
     font-size: clamp(1rem, 1.6vw, 1.2rem);
@@ -22,17 +22,17 @@
 .home-title-en {
     display: block;
     font-family: var(--site-serif);
-    font-size: clamp(4.25rem, 7.8vw, 7.5rem);
+    font-size: clamp(28px, 3.2vw, 38px);
     font-weight: 400;
     letter-spacing: -0.035em;
-    line-height: 0.9;
+    line-height: 1.15;
     overflow-wrap: anywhere;
     text-wrap: balance;
 }
 
 .home-deck {
     max-width: 37rem;
-    margin-top: clamp(1.35rem, 3vw, 2rem);
+    margin-top: 1.1rem;
 }
 
 .home-deck p {
@@ -54,7 +54,7 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 0.8rem 1.4rem;
-    margin-top: clamp(1.4rem, 3vw, 2.2rem);
+    margin-top: 1.3rem;
 }
 
 .home-main .home-primary,
@@ -337,14 +337,6 @@
 }
 
 @media (max-width: 760px) {
-    .home-main .home-hero {
-        padding-block: 2.25rem 1.9rem;
-    }
-
-    .home-title-en {
-        font-size: clamp(3.9rem, 11vw, 6.2rem);
-    }
-
     .home-post {
         grid-template-columns: minmax(0, 1fr);
         gap: 0.55rem;
@@ -360,11 +352,5 @@
 
     .home-post-categories {
         margin-top: 0;
-    }
-}
-
-@media (max-width: 380px) {
-    .home-title-en {
-        font-size: 3.5rem;
     }
 }

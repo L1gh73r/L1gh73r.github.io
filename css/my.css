@@ -24,6 +24,20 @@
     font-size: .58em;
 }
 
+.utility-page:is(.contact-page, .friends-page) {
+    padding-block-start: clamp(32px, 4vw, 56px);
+}
+
+:is(.contact-page, .friends-page) .utility-intro {
+    margin-bottom: clamp(24px, 3vw, 36px);
+}
+
+:is(.contact-page, .friends-page) .utility-intro h1 {
+    margin-bottom: 14px;
+    font-size: clamp(24px, 3vw, 30px);
+    line-height: 1.2;
+}
+
 .utility-page p {
     margin: 0;
     color: var(--site-muted);
